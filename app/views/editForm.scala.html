@@ -1,0 +1,48 @@
+@(id: Long, emailForm: Form[Email], recipients : Seq[(String, String)])(implicit requestHeader: MessagesRequestHeader)
+
+@import views.html.helper._
+
+@main {
+    
+    <h1>Edit email</h1>
+    
+    @form(routes.HomeController.update(id)) {
+        
+        <fieldset>
+            @CSRF.formField
+            @inputText(emailForm("title"), '_label -> "Email title", '_help -> "")
+            @inputText(emailForm("from_day"), '_label -> "Shipping from the day", '_help -> "")
+            @inputText(emailForm("to_day"), '_label -> "Shipping to the day", '_help -> "")
+            @inputText(emailForm("from_hour"), '_label -> "Shipping from the hour", '_help -> "")
+            @inputText(emailForm("to_hour"), '_label -> "Shipping to the hour", '_help -> "")
+            @inputText(emailForm("msg"), '_label -> "Message", '_help -> "")
+            @inputText(emailForm("status"), '_label -> "Status", '_help -> "")
+            
+            @select(
+                emailForm("sender"),
+                recipients,
+                '_label -> "Sender", '_default -> "-- Choose a sender --",
+                '_showConstraints -> false
+            )
+
+            @select(
+            emailForm("recipient"),
+            recipients,
+            '_label -> "Recipient", '_default -> "-- Choose a recipient --",
+            '_showConstraints -> false
+            )
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" value="Save this email" class="btn primary"> or
+            <a href="@routes.HomeController.list()" class="btn">Cancel</a>
+        </div>
+        
+    }
+    
+    @form(routes.HomeController.delete(id), 'class -> "topRight") {
+        @CSRF.formField
+        <input type="submit" value="Delete this email" class="btn danger">
+    }
+    
+}

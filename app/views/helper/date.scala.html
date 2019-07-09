@@ -1,0 +1,7 @@
+@(field: play.api.data.Field, args: (Symbol,Any)*)(implicit handler: FieldConstructor, messages: play.api.i18n.MessagesProvider)
+
+@inputType = @{ "date" }
+
+@input(field, args.filter(_._1 != 'type):_*) { (id, title, value, htmlArgs) =>
+  <input type="@inputType" id="@id" title="@title" value="@value" @toHtmlArgs(htmlArgs)/>
+}
