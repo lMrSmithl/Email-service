@@ -1,0 +1,129 @@
+2019-07-09 17:38:28,216 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-4 - Database [default] initialized at jdbc:h2:mem:play;DB_CLOSE_DELAY=-1
+2019-07-09 17:38:28,220 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2019-07-09 17:38:28,228 [INFO] from com.zaxxer.hikari.HikariDataSource in play-dev-mode-akka.actor.default-dispatcher-4 - HikariPool-1 - Starting...
+2019-07-09 17:38:28,239 [INFO] from com.zaxxer.hikari.HikariDataSource in play-dev-mode-akka.actor.default-dispatcher-4 - HikariPool-1 - Start completed.
+2019-07-09 17:38:28,486 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-5 - Slf4jLogger started
+2019-07-09 17:38:28,599 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2019-07-09 17:38:28,604 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev) (no global state)
+2019-07-09 17:38:28,645 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-4 - 
+
+! @7ceg18kjl - Internal server error, for (GET) [/emails] ->
+ 
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsWebCommands.$anonfun$handleWebCommand$5(ApplicationEvolutions.scala:529)
+	at play.api.db.evolutions.EvolutionsWebCommands.$anonfun$handleWebCommand$5$adapted(ApplicationEvolutions.scala:522)
+	at play.api.db.evolutions.ApplicationEvolutions$.$anonfun$runEvolutions$1(ApplicationEvolutions.scala:211)
+	at play.api.db.evolutions.ApplicationEvolutions$.withLock(ApplicationEvolutions.scala:232)
+	at play.api.db.evolutions.ApplicationEvolutions$.runEvolutions(ApplicationEvolutions.scala:202)
+	at play.api.db.evolutions.EvolutionsWebCommands.$anonfun$handleWebCommand$4(ApplicationEvolutions.scala:522)
+	at play.api.db.evolutions.EvolutionsWebCommands.$anonfun$handleWebCommand$4$adapted(ApplicationEvolutions.scala:517)
+	at scala.collection.immutable.List.foreach(List.scala:392)
+	at play.api.db.evolutions.EvolutionsWebCommands.handleWebCommand(ApplicationEvolutions.scala:517)
+	at play.core.DefaultWebCommands.$anonfun$handleWebCommand$1(WebCommands.scala:42)
+	at scala.collection.immutable.Stream.flatMap(Stream.scala:489)
+	at play.core.DefaultWebCommands.handleWebCommand(WebCommands.scala:42)
+	at play.api.http.DefaultHttpRequestHandler.$anonfun$handlerForRequest$4(HttpRequestHandler.scala:204)
+	at scala.Option.flatMap(Option.scala:188)
+	at play.api.http.DefaultHttpRequestHandler.handlerForRequest(HttpRequestHandler.scala:203)
+	at play.core.server.Server$.getHandlerFor(Server.scala:121)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:319)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:189)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1261)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:523)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:409)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:606)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:485)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:581)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:749)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:764)
+	at akka.actor.Actor.aroundReceive(Actor.scala:539)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:537)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:671)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:612)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:581)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:268)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:229)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:241)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2019-07-09 17:38:31,078 [ERROR] from play.api.db.evolutions.DefaultEvolutionsApi in play-dev-mode-akka.actor.default-dispatcher-4 - Błąd składniowy w wyrażeniu SQL "insert into email (id,title,from_day,to_day,from_hour,to_hour,msg,sender_id,recipient_id,status) values (  33,'Spotkanie',1,7,0,24,[*]'Cześć :) Spotkamy się dziś wieczorem o 19 tam gdzie zawsze?"
+Syntax error in SQL statement "insert into email (id,title,from_day,to_day,from_hour,to_hour,msg,sender_id,recipient_id,status) values (  33,'Spotkanie',1,7,0,24,[*]'Cześć :) Spotkamy się dziś wieczorem o 19 tam gdzie zawsze?"; SQL statement:
+insert into email (id,title,from_day,to_day,from_hour,to_hour,msg,sender_id,recipient_id,status) values (  33,'Spotkanie',1,7,0,24,'Cześć :) Spotkamy się dziś wieczorem o 19 tam gdzie zawsze? [42000-199] [ERROR:42000, SQLSTATE:42000]
+2019-07-09 17:38:31,078 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-4 - 
+
+! @7ceg18o9d - Internal server error, for (GET) [/emails/@evolutions/apply/default?redirect=http%3A%2F%2Flocalhost%3A9000%2Femails] ->
+ 
+play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.]
+	at play.api.db.evolutions.DatabaseEvolutions.$anonfun$checkEvolutionsState$3(EvolutionsApi.scala:309)
+	at play.api.db.evolutions.DatabaseEvolutions.$anonfun$checkEvolutionsState$3$adapted(EvolutionsApi.scala:294)
+	at play.api.db.evolutions.DatabaseEvolutions.executeQuery(EvolutionsApi.scala:341)
+	at play.api.db.evolutions.DatabaseEvolutions.checkEvolutionsState(EvolutionsApi.scala:294)
+	at play.api.db.evolutions.DatabaseEvolutions.evolve(EvolutionsApi.scala:263)
+	at play.api.db.evolutions.DefaultEvolutionsApi.evolve(EvolutionsApi.scala:104)
+	at play.api.db.evolutions.EvolutionsWebCommands.handleWebCommand(ApplicationEvolutions.scala:496)
+	at play.core.DefaultWebCommands.$anonfun$handleWebCommand$1(WebCommands.scala:42)
+	at scala.collection.immutable.Stream.flatMap(Stream.scala:489)
+	at play.core.DefaultWebCommands.handleWebCommand(WebCommands.scala:42)
+	at play.api.http.DefaultHttpRequestHandler.$anonfun$handlerForRequest$4(HttpRequestHandler.scala:204)
+	at scala.Option.flatMap(Option.scala:188)
+	at play.api.http.DefaultHttpRequestHandler.handlerForRequest(HttpRequestHandler.scala:203)
+	at play.core.server.Server$.getHandlerFor(Server.scala:121)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:319)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:189)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1261)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:523)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:409)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:606)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:485)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:581)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:749)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:764)
+	at akka.actor.Actor.aroundReceive(Actor.scala:539)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:537)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:671)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:612)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:581)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:268)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:229)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:241)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2019-07-09 17:38:32,616 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2019-07-09 17:38:32,617 [INFO] from com.zaxxer.hikari.HikariDataSource in application-akka.actor.default-dispatcher-4 - HikariPool-1 - Shutdown initiated...
+2019-07-09 17:38:32,623 [INFO] from com.zaxxer.hikari.HikariDataSource in application-akka.actor.default-dispatcher-4 - HikariPool-1 - Shutdown completed.
+2019-07-09 17:38:32,726 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-4 - Database [default] initialized at jdbc:h2:mem:play;DB_CLOSE_DELAY=-1
+2019-07-09 17:38:32,727 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2019-07-09 17:38:32,727 [INFO] from com.zaxxer.hikari.HikariDataSource in play-dev-mode-akka.actor.default-dispatcher-4 - HikariPool-2 - Starting...
+2019-07-09 17:38:32,727 [INFO] from com.zaxxer.hikari.HikariDataSource in play-dev-mode-akka.actor.default-dispatcher-4 - HikariPool-2 - Start completed.
+2019-07-09 17:38:32,763 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-3 - Slf4jLogger started
+2019-07-09 17:38:32,783 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2019-07-09 17:38:32,784 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev) (no global state)
+2019-07-09 17:38:33,319 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2019-07-09 17:38:33,319 [INFO] from com.zaxxer.hikari.HikariDataSource in application-akka.actor.default-dispatcher-3 - HikariPool-2 - Shutdown initiated...
+2019-07-09 17:38:33,321 [INFO] from com.zaxxer.hikari.HikariDataSource in application-akka.actor.default-dispatcher-3 - HikariPool-2 - Shutdown completed.
+2019-07-09 17:38:33,402 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] initialized at jdbc:h2:mem:play;DB_CLOSE_DELAY=-1
+2019-07-09 17:38:33,402 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2019-07-09 17:38:33,403 [INFO] from com.zaxxer.hikari.HikariDataSource in play-dev-mode-akka.actor.default-dispatcher-3 - HikariPool-3 - Starting...
+2019-07-09 17:38:33,403 [INFO] from com.zaxxer.hikari.HikariDataSource in play-dev-mode-akka.actor.default-dispatcher-3 - HikariPool-3 - Start completed.
+2019-07-09 17:38:33,432 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-2 - Slf4jLogger started
+2019-07-09 17:38:33,453 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2019-07-09 17:38:33,455 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev) (no global state)
