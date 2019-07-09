@@ -1,4 +1,4 @@
-# play-scala-anorm-example
+# scala-email-service
 
 This is an example Play application that uses Scala on the front end, and communicates with an in memory database using Anorm.
 
